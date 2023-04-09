@@ -21,7 +21,8 @@ The app should work when closed or in background.
 
 The data received by this application through the gateway can contain the following fields
 
-```{
+```
+{
     "type": "(optional) only 'intent' is accepted and is also the default",
     "application": "(optional) the target package name to send the intent to. Broadcastet to all apps if left out",
     "action": "(optional) the action set for the intent",
@@ -30,4 +31,5 @@ The data received by this application through the gateway can contain the follow
         "EXTRA_KEY_2": "(optional) a second extra entry. Can contain ints, floats, booleans or strnings",
         "EXTRA_KEY_3": "(optional) the whole 'extras' entry is optional",
     }
-}```
+}
+```
