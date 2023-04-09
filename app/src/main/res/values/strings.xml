@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FCM Gateway</string>
+    <string name="msg_fetching_registration_token">Grabbing your registration token...</string>
+    <string name="msg_registration_error">Error fetching registration token: %s</string>
+    <string name="msg_registration_tap_here">Tap here to copy your registration token</string>
+    <string name="msg_registration_token_copied">Registration token copied to clipboard!</string>
+</resources>
