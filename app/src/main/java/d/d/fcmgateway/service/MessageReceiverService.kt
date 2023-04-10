@@ -1,15 +1,16 @@
-package d.d.fcmgateway.service;
+package d.d.fcmgateway.service
 
 import android.content.Intent
 import android.util.Log
-import androidx.annotation.NonNull;
+import androidx.annotation.NonNull
 
-import com.google.firebase.messaging.FirebaseMessagingService;
-import com.google.firebase.messaging.RemoteMessage;
+import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.messaging.RemoteMessage
 import org.json.JSONObject
 
 class MessageReceiverService : FirebaseMessagingService() {
     private val TAG = "MessageReceiverService"
+
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
 
@@ -19,7 +20,7 @@ class MessageReceiverService : FirebaseMessagingService() {
         val application = data["application"]
         val extrasSerialized = data["extras"]
 
-        if(type == "intent"){
+        if(listOf("broadcast").contains(type)){
             val intent = Intent()
             action?.let { intent.action = action }
             application?.let { intent.`package` = application }
@@ -35,8 +36,10 @@ class MessageReceiverService : FirebaseMessagingService() {
                     }
                 }
             }
-            Log.d(TAG, "onMessageReceived: sending Intent")
-            sendBroadcast(intent)
+            Log.d(TAG, "onMessageReceived: sending $type")
+            when(type){
+                "broadcast" -> sendBroadcast(intent)
+            }
         }
 
         Log.d(TAG, "onMessageReceived: ")
